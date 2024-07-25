@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import {APIService} from '../../../app/service/api.service'
 import {train} from '../../../app/model/train'
+import {FormsModule} from '@angular/forms'
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 
@@ -13,7 +14,12 @@ import {train} from '../../../app/model/train'
 export class HomeComponent implements OnInit {
 
   service = inject(APIService)
+  router= inject(Router)
   train_details: train[] = []; 
+  fromid: number = 0;
+  toid: number = 0;
+  date: string='';
+
 
   constructor(){
     
@@ -32,4 +38,16 @@ export class HomeComponent implements OnInit {
     })
   }
 
-}
+  Onsearch(){
+    if(this.fromid==0 || this.toid==0 || this.date==""){
+      alert("Please fill all the fields")
+    }
+
+    else{
+    
+      this.router.navigate(['/search',this.fromid,this.toid,this.date])
+      }
+    }
+  }
+
+

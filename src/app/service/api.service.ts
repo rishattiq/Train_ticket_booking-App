@@ -17,5 +17,8 @@ export class APIService {
     return this.http.get('https://freetestapi.com/api/v1/airlines')
   }
 
+  searchData(from:number,to:number){
+    return this.http.get(`https://freetestapi.com/api/v1/airlines?search=${from},${to}`)
+  }
 
 }
