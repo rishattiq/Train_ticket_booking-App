@@ -5,53 +5,57 @@
 <div class="container-fluid bg-secondary p-4">
     <div class="row">
        <div class="col-4 px-4">
-           <select class="form-select">
-               <option value="">Pune</option>
+           <select class="form-select" [(ngModel)]="search_data.fromstationId">
+            @for(item of  train_details; track $index){
+
+                <option [value]="item.id">{{item.country}}</option>
+            }
+            
            </select>
        </div>
        <div class="col-4 px-4">
-           <select class="form-select">
-               <option value=""> Nagpur </option>
+           <select class="form-select" [(ngModel)]="search_data.tostationId">
+            @for(item of  train_details; track $index){
+
+                <option [value]="item.id">{{item.country}}</option>
+            }
+            
            </select>
        </div>
        <div class="col-2 px-2">
-           <input type="text" class="form-control" value="12-12-2023" /> 
+           <input type="text" class="form-control"[(ngModel)]="search_data.date" value="" /> 
        </div>
        <div class="col-2 text-end">
-           <button type="button" class="btn btn-primary btn-sm">Modify Search</button>
+           <button type="button" class="btn btn-primary btn-sm" (click)="getsearch()">Modify Search</button>
        </div>
     </div>
 </div>
 <div class="container-fluid pt-2">
-   <p style="border: 1px solid;padding: 5px;margin-top: 5px;"><strong>4</strong> Result Found For <strong>Pune</strong>  to <strong>Nagpur</strong> on 12-12-2023</p>
-   <div class="row">
-      
-       @for(item of TrainList ; track $index){
-        <div class="col-6 mt-2">
-            <div class="card">
-                <div class="card-header bg-secondary text-white">
-                    {{item.country}} (item.id)
-                </div>
-                <div class="card-body">
-                    <div class="row pb-2">
-                        <div class="col-5">
-                            {{item.code}} | {{item.country}} | {{item.fleet_size}}
-                        </div>
-                        <div class="col-2">
-                        15:05 hrs 
-                        </div>
-                        <div class="col-5 text-end">
-                            {{item.code}} | {{item.country}} | {{item.fleet_size}}
-                        </div>
-                    </div>
-                    <button class="btn btn-success btn-sm">Book Now</button>
-                </div>
+    <div class="row">
+      <div *ngFor="let item of train_details; let i = index" class="col-6 mt-2">
+        <div class="card">
+          <div class="card-header bg-secondary text-white">
+            {{ item.country }} ({{ item.id }})
+          </div>
+          <div class="card-body">
+            <div class="row pb-2">
+              <div class="col-5">
+                {{ item.code }} | {{ item.country }} | {{ item.fleet_size }}
+              </div>
+              <div class="col-2">
+                15:05 hrs
+              </div>
+              <div class="col-5 text-end">
+                {{ item.code }} | {{ item.country }} | {{ item.fleet_size }}
+              </div>
             </div>
+            <button class="btn btn-success btn-sm">Book Now</button>
+          </div>
         </div>
-       }
-       
-
-   </div> 
+      </div>
+    </div>
+  </div>
+  
 
 
 <div class="modal" id="myModal">

@@ -31,23 +31,30 @@ export interface train{
   }
 
 
-export type Root = iTrain[]
+
 
 export interface iTrain {
-  id: number
-  name: string
-  code: string
-  country: string
-  founded: string
-  fleet_size: string
-  headquarters: string
-  website: string
-  destinations: Destination[]
+  
+  "id": number,
+  "name": string,
+  "code": string,
+  "country": string,
+  "founded": string,
+  "fleet_size": string,
+  "headquarters": string,
+  "website": string,
+  "destinations": [
+    {
+      "name": string,
+      "code": string
+    },
+    {
+      "name": string,
+      "code": string
+    },
+    {
+      "name": string,
+      "code": string
+    }
+  ]
 }
-
-export interface Destination {
-  name: string
-  code: string
-}
-
-    
