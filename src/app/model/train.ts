@@ -25,7 +25,7 @@ export interface train{
   }
 
   export class Search{
-    fromstationId:number=0;
+    name:string="";
     tostationId:number=0;
     date:string=''
   }

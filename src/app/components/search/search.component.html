@@ -5,10 +5,10 @@
 <div class="container-fluid bg-secondary p-4">
     <div class="row">
        <div class="col-4 px-4">
-           <select class="form-select" [(ngModel)]="search_data.fromstationId">
+           <select class="form-select" [(ngModel)]="search_data.name">
             @for(item of  train_details; track $index){
 
-                <option [value]="item.id">{{item.country}}</option>
+                <option [value]="item.name">{{item.country}}</option>
             }
             
            </select>
@@ -17,7 +17,7 @@
            <select class="form-select" [(ngModel)]="search_data.tostationId">
             @for(item of  train_details; track $index){
 
-                <option [value]="item.id">{{item.country}}</option>
+                <option [value]="item.name">{{item.country}}</option>
             }
             
            </select>
@@ -32,7 +32,7 @@
 </div>
 <div class="container-fluid pt-2">
     <div class="row">
-      <div *ngFor="let item of train_details; let i = index" class="col-6 mt-2">
+      <div *ngFor="let item of TrainList; let i = index" class="col-6 mt-2">
         <div class="card">
           <div class="card-header bg-secondary text-white">
             {{ item.country }} ({{ item.id }})

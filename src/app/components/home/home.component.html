@@ -11,10 +11,10 @@
                                     <div class="col-6">
                                         <label class="form-label" for="form3Example1c">From Station</label>
                                         <select [(ngModel)]="fromid" name="fromid" id="" class="form-select">
-                                            <option value="0">From Station</option>
+                                            <option value="">From Station</option>
                                             @for(item of  train_details; track $index){
 
-                                                <option [value]="item.id">{{item.country}}</option>
+                                                <option [value]="item.name">{{item.country}}</option>
                                             }
                                             
                                         </select>
@@ -25,7 +25,7 @@
                                             <option value="0">To Station</option>
                                             @for(item of  train_details; track $index){
 
-                                                <option [value]="item.id">{{item.country}}</option>
+                                                <option [value]="item.name">{{item.country}}</option>
                                             }
                                         </select>
                                     </div>

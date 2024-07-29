@@ -13,7 +13,7 @@ export const routes: Routes = [
         component: HomeComponent
     },
     {
-        path:"search/:fromstationId/:tostationId/:dateofTravel",
+        path:"search/:name",
         component: SearchComponent
 
     }

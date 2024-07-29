@@ -31,12 +31,11 @@ export class SearchComponent {
   }
 
   getsearch() {
-    this.service.searchData(this.search_data.fromstationId).subscribe((res: any) => {
-      console.log('API Response:', res); // Log the response to check its structure
+    this.service.searchData(this.search_data.name).subscribe((res: any) => {
       this.TrainList = res;
       console.log('TrainList:', this.TrainList);
-      console.log(this.search_data.fromstationId)
-      
+      console.log(this.search_data.name)
+    
 
     });
   }

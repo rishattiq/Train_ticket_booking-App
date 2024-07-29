@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   service = inject(APIService)
   router= inject(Router)
   train_details: train[] = []; 
-  fromid: number = 0;
+  fromid: string = "";
   toid: number = 0;
   date: string='';
 
@@ -39,13 +39,13 @@ export class HomeComponent implements OnInit {
   }
 
   Onsearch(){
-    if(this.fromid==0 || this.toid==0 || this.date==""){
+    if(this.fromid==" " || this.toid==0 || this.date==""){
       alert("Please fill all the fields")
     }
 
     else{
     
-      this.router.navigate(['/search',this.fromid,this.toid,this.date])
+      this.router.navigate(['/search',this.fromid])
       }
     }
   }
